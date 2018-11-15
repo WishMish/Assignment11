@@ -10,8 +10,8 @@
 int x;
 int y;
 
-int dx = 20;
-int dy = 20;
+int spacex = 100;
+int spacey = 100;
 
 int ydir = 1; 
 int xdir = 1;
@@ -30,7 +30,7 @@ void setup() {
   size(800, 800);
   colorMode(HSB, numChars);
   for(int i = 0; i < numChars; i++){
-    colors[i] = color(i, numChars, numChars, i + 15);
+    colors[i] = color(numChars, i, numChars, i);
   }
 }
 
@@ -61,8 +61,14 @@ void keyPressed() {
 }
 
 void setPosition() {
-  x = x + ( dx*xdir);
-  y = y + ( dy*ydir);
+  x = x + ( spacex);
+  if(x>width){
+   x = 0;
+   y +=spacey;
+  }
+  if(y>height){
+    y = 0;
+  }
   
   //if( x > width - size){
   //  xdir *= -1;
