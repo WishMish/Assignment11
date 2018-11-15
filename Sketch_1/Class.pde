@@ -32,9 +32,9 @@ class ButtonHeld {
   }
   
   //don't fully understand what this does
-  //boolean getButtonStatus() {
-    //return held;
-  //}
+  boolean getButtonStatus() {
+    return held;
+  }
 }
 
 //class Button {

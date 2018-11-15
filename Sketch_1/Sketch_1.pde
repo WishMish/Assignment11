@@ -23,7 +23,12 @@ void setup() {
 }
 
 void draw() {
-  background(100);
+  if(button.getButtonStatus()){
+    background(150);
+  } else if(!button.getButtonStatus()){
+    background(240);
+  }
+  println(button.getButtonStatus());
   button.display();
   button.checkHeld();
 }
