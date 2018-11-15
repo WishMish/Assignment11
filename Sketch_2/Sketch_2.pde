@@ -17,7 +17,7 @@
 // the Word class.
 
 String letters = "";
-
+ArrayList<Word> words = new ArrayList<Word>();
 Word w;
 
 void setup() {
@@ -31,30 +31,20 @@ void draw() {
   background(0);
   w.display();
   text(letters, 0, 50, 600, 1000);
-}
-
-class Word {
-  String theWord;
-  float x, y;
-  
-  Word(float x, float y, String text) {
-    theWord = text;
-    this.x = x;
-    this.y = y;
-  }
-  
-  void display() {
-    //float b;
-    //b = this.y;
-    fill(0, 200, 0);
-    text(theWord, x, y);
+  for(Word temp : words){
+     temp.display();
   }
 }
 
 void keyPressed() {
   if ((key == ENTER) || (key == RETURN)) {
-    println(letters);
+    
+    Word w = new Word(random(width), random(height), letters);
+    words.add(w);
     letters = "";
+    for(Word temp : words){
+      println(temp.theWord);
+    }
   } else if ((key > 31) && (key != CODED)) {
     letters = letters + key;
   }
