@@ -15,50 +15,15 @@
 // and create some kind of visual effect whenever the buttons are active. 
 
 
-Button button;
+ButtonHeld button;
 
 void setup() {
   size(300, 300);
-  button = new Button(120, 95, 100, 30);
+  button = new ButtonHeld(120, 95, 100, 30);
 }
 
 void draw() {
   background(100);
   button.display();
-}
-
-void mousePressed() {
-  button.checkPressed();
-}
-
-class Button {
-  boolean pressed;
-  float x, y;
-  float w, h;
-  
-  Button(float x, float y, float w, float h) {
-    this.x = x;
-    this.y = y;
-    this.w = w;
-    this.h = h;
-  }
-  
-  void checkPressed() {
-    if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
-      pressed = !pressed;
-    }
-  }
-  
-  void display() {
-    if (pressed) {
-      fill(240);
-    } else {
-      fill(150);
-    }
-    rect(x, y, w, h);
-  }
-  
-  boolean getButtonStatus() {
-    return pressed;
-  }
+  button.checkHeld();
 }
